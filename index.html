@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whether</title>
+    <link rel="stylesheet" href="./css.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app">
+    <div class="widget">
+        <button class="button widget__serching-open" onclick="toogleSearch()">
+            Поиск города
+        </button>
+        <div class="widget__icon">
+            <img src="./img/cloudy.svg" alt="widget-icon" class="widget-icon__img">
+        </div>
+        <div class="widget__searching">
+            <button class="searching__close" onclick="toogleSearch()">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26 2.61857L23.3814 0L13 10.3814L2.61857 0L0 2.61857L10.3814 13L0 23.3814L2.61857 26L13 15.6186L23.3814 26L26 23.3814L15.6186 13L26 2.61857Z" fill="#48484A"/>
+                </svg>
+            </button>
+            <form class="searching__form">
+                <input type="search" class="searching-form__input" value="Москва">
+                <button class=" button search-form__button" type="button">Найти</button>
+            </form>
+        </div>
+        <header class="widget__header"></header>
+        <div class="widget__body">
+            <div class="widget-body__temp">1<span class="temp__space">&nbsp;</span><span class="temp__symbol">°C</span></div>
+            <div class="widget-body__text">Cнег</div>
+            <div class="widget-body__feels-like">Ощущается как -3 °C</div>
+            <div class="widget-body__date">
+                <div class="date__text">Сегодня</div>
+                <div class="date__info">Вс, 13 мар</div>
+            </div>
+            <div class="widget-body__geo">
+                <div class="geo__icon">
+                    <svg width="24" height="34" viewBox="0 0 24 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.9999 0.333344C5.54992 0.333344 0.333252 5.55001 0.333252 12C0.333252 20.75 11.9999 33.6667 11.9999 33.6667C11.9999 33.6667 23.6666 20.75 23.6666 12C23.6666 5.55001 18.4499 0.333344 11.9999 0.333344ZM11.9999 16.1667C10.8949 16.1667 9.83504 15.7277 9.05364 14.9463C8.27224 14.1649 7.83325 13.1051 7.83325 12C7.83325 10.8949 8.27224 9.83513 9.05364 9.05373C9.83504 8.27233 10.8949 7.83334 11.9999 7.83334C13.105 7.83334 14.1648 8.27233 14.9462 9.05373C15.7276 9.83513 16.1666 10.8949 16.1666 12C16.1666 13.1051 15.7276 14.1649 14.9462 14.9463C14.1648 15.7277 13.105 16.1667 11.9999 16.1667Z" fill="#EC6E4D"/>
+                    </svg>
+                </div>
+                <div class="geo_city">Москва</div>
+            </div>
+        </div>
+    </div>
+    <main class="main">
+        <div class="main__container">
+            <div class="main__forecast">
+                <div class="forecast__header">
+                    <div class="forecast-header__title">
+                        Прогноз
+                    </div>
+                    <div class="forecast-header__radios">
+                        <label class="forecast-radio__label">
+                            <input type="radio" name="forecast-type" class="forecast-radio__input" onchange="onChange(event)" data-forecast="weekly" checked>
+                            <span class="forecast-radio__text forecast-radio__text_active">на неделю</span>
+                        </label>
+                        <label class="forecast-radio__label">
+                            <input type="radio" name="forecast-type" class="forecast-radio__input" onchange="onChange(event)" data-forecast="hourly">
+                            <span class="forecast-radio__text">почасовой</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="forecast__panel" data-forecast-type="weekly">
+                    <div class="forecast__body">
+                        <div class="forecast-body__cards">
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">Завтра</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                    <div class="forecast-card__min-temp">4°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">Пн, 15 мар</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                    <div class="forecast-card__min-temp">4°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">Пн, 16 мар</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                    <div class="forecast-card__min-temp">4°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">Пн, 17 мар</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                    <div class="forecast-card__min-temp">4°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">Пн, 18 мар</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                    <div class="forecast-card__min-temp">4°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">Пн, 19 мар</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                    <div class="forecast-card__min-temp">4°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">Пн, 20 мар</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                    <div class="forecast-card__min-temp">4°C</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="forecast-button forecast-button_disabled forecast-button_reversed js-forecast-button_left">
+                        <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1.5L10.1265 7.14974C10.758 7.54068 10.758 8.45932 10.1265 8.85027L1 14.5" stroke="#ACACAC" stroke-width="3"/>
+                        </svg>
+                    </button>
+                    <button class="forecast-button js-forecast-button_right">
+                        <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1.5L10.1265 7.14974C10.758 7.54068 10.758 8.45932 10.1265 8.85027L1 14.5" stroke="#ACACAC" stroke-width="3"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="forecast__panel" style="visibility: hidden; opacity: 0; height: 0;" data-forecast-type="hourly">
+                    <div class="forecast__body">
+                        <div class="forecast-body__cards">
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">15:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">16:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">17:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">18:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">19:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">20:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">21:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">22:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">23:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">00:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">01:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-card__title">02:00</div>
+                                <div class="forecast-card__icon">
+                                    <img src="./img/cloudy.svg" alt="icon">
+                                </div>
+                                <div class="forecast-card__text">
+                                    <div class="forecast-card__max-temp">10°C</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="forecast-button forecast-button_disabled forecast-button_reversed js-forecast-button_left">
+                        <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1.5L10.1265 7.14974C10.758 7.54068 10.758 8.45932 10.1265 8.85027L1 14.5" stroke="#ACACAC" stroke-width="3"/>
+                        </svg>
+                    </button>
+                    <button class="forecast-button js-forecast-button_right">
+                        <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1.5L10.1265 7.14974C10.758 7.54068 10.758 8.45932 10.1265 8.85027L1 14.5" stroke="#ACACAC" stroke-width="3"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="main__details">
+                <div class="main-datails__header">Подробно на сегодня</div>
+                <div class="main-details__cards">
+                    <div class="details-card">
+                        <div class="details-card__title">Скорость ветра</div>
+                        <div class="details-card__body">
+                            7 <span class="details-card__body_smaller">м/с</span>
+                        </div>
+                        <div class="details-card__footer">
+                            <div class="details-footer__icon">
+                                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="19" cy="19" r="19" fill="#48484A"/>
+                                    <path d="M18.1951 31.0029L10.0872 10.8978C9.76221 10.092 10.5487 9.28365 11.3631 9.58643L31.9073 17.2246C32.7267 17.5293 32.7906 18.6717 32.0237 19.0912C26.1915 22.2822 23.1612 25.3608 20.0501 31.0907C19.6388 31.8482 18.5175 31.8023 18.1951 31.0029Z" fill="#E6E6E6"/>
+                                </svg>
+                            </div>
+                            <div class="details-footer__text">СЗ</div>
+                        </div>
+                    </div>
+                    <div class="details-card">
+                        <div class="details-card__title">Влажность</div>
+                        <div class="details-card__body">
+                            84 <span class="details-card__body_smaller">%</span>
+                        </div>
+                    </div>
+                    <div class="details-card">
+                        <div class="details-card__title">Видимость</div>
+                        <div class="details-card__body">
+                            6.2 <span class="details-card__body_smaller">км</span>
+                        </div>
+                    </div>
+                    <div class="details-card">
+                        <div class="details-card__title">Давление</div>
+                        <div class="details-card__body">
+                            742 <span class="details-card__body_smallest">мм рт. ст.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="./index.js"></script>
+</body>
+</html>
